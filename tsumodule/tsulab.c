@@ -17,7 +17,6 @@ static ssize_t procfile_read(struct file *file_pointer,
                              size_t buffer_length,
                              loff_t *offset)
 {
-    char msg[] = "Hello from TSU lab module!\n";
     return simple_read_from_buffer(buffer, buffer_length, offset,
                                    msg, strlen(msg));
 }
