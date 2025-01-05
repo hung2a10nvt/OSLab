@@ -6,7 +6,7 @@
 #include <linux/version.h>
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Your Name");
+MODULE_AUTHOR("Hung");
 MODULE_DESCRIPTION("TSU Lab Module");
 
 static struct proc_dir_entry *our_proc_file = NULL;
@@ -22,11 +22,9 @@ static ssize_t procfile_read(struct file *file_pointer,
                                    msg, strlen(msg));
 }
 
-/* Tạo “proc_ops” nếu kernel >= 5.6 */
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 6, 0)
 static const struct proc_ops proc_file_ops = {
-    .proc_read = procfile_read,   // Thay vì .read
-    // Nếu bạn cần ghi, thì .proc_write = hàm_write, ...
+    .proc_read = procfile_read,   
 };
 #else
 static const struct file_operations proc_file_ops = {
