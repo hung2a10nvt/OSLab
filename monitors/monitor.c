@@ -10,7 +10,7 @@ static int ready = 0;
 void* producer_thread(void* arg) {
     int count = 0;
     while (1) {
-        sleep(1); // Mỗi giây tạo 1 sự kiện
+        sleep(1); 
         pthread_mutex_lock(&lock);
 
         if (ready == 1) {
